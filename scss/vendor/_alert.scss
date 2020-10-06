@@ -1,0 +1,81 @@
+// 10.06 수업 @each ------------------------
+//map
+$icons:
+      (
+        "eye": "\f112",
+        "start": "\f12e",
+        "stop": "\f12f"
+      );
+
+@each $key, $key-v in $icons {
+    // $key, $key-v 사용 
+}
+
+// list
+$color: (apple, orange, black, pikatu);
+// $sizes: 40px, 50px, 80px;
+
+@each $c-name in $color {
+    // $c-name 사용
+}
+$color0: (apple0, orange0);
+$color1: (apple1, orange1);
+$color2: (apple2, orange2);
+
+@each $c-name in $color0, color1, color2 {
+    // $c-name 사용
+}
+
+// --------------------------------------------------------
+
+//
+// Base styles
+//
+
+.alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+  @include border-radius($alert-border-radius);
+}
+
+// Headings for larger alerts
+.alert-heading {
+  // Specified to prevent conflicts of changing $headings-color
+  color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert-link {
+  font-weight: $alert-link-font-weight;
+}
+
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissible {
+  padding-right: $close-font-size + $alert-padding-x * 2;
+
+  // Adjust close link position
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
+
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+@each $color, $value in $theme-colors {
+  .alert-#{$color} {
+    @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+  }
+}

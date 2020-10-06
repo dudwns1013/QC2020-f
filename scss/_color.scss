@@ -1,0 +1,33 @@
+// Alpha value
+$alpha: 0.3;
+
+// default color
+$dy-blue:   rgb(0, 123, 255)  !default;
+$dy-purple: rgb(110, 65, 193) !default;
+$dy-red:    rgb(221, 53, 69)  !default;
+$dy-yellow: rgb(255, 193, 6)  !default;
+$dy-green:  rgb(40, 167, 69)  !default;
+
+// Gray
+$dy-gray: rgb(108, 117, 125) !default;
+$dy-dark: rgb(52, 58, 64)    !default;
+
+// Black & White
+$dy-white: rgb(255, 255, 255) !default;
+$dy-black: rgb(0, 0, 0)       !default;
+
+// background color
+$bg-blue:   rgba($dy-blue, $alpha)   !default;
+$bg-purple: rgba($dy-purple, $alpha) !default;
+$bg-red:    rgba($dy-red, $alpha)    !default;
+$bg-yellow: rgba($dy-yellow, $alpha) !default;
+$bg-green:  rgba($dy-green, $alpha)  !default;
+
+// default color array
+$dy-color: (
+    'dy-blue': $dy-blue,
+    'dy-purple': $dy-purple,
+    'dy-red': $dy-red,
+    'dy-yellow': $dy-yellow,
+    'dy-green': $dy-green,
+);
