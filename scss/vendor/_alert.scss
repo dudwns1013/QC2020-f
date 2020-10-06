@@ -1,30 +1,30 @@
 // 10.06 수업 @each ------------------------
 //map
-$icons:
-      (
-        "eye": "\f112",
-        "start": "\f12e",
-        "stop": "\f12f"
-      );
+// $icons:
+//       (
+//         "eye": "\f112",
+//         "start": "\f12e",
+//         "stop": "\f12f"
+//       );
 
-@each $key, $key-v in $icons {
-    // $key, $key-v 사용 
-}
+// @each $key, $key-v in $icons {
+//     // $key, $key-v 사용 
+// }
 
-// list
-$color: (apple, orange, black, pikatu);
-// $sizes: 40px, 50px, 80px;
+// // list
+// $color: (apple, orange, black, pikatu);
+// // $sizes: 40px, 50px, 80px;
 
-@each $c-name in $color {
-    // $c-name 사용
-}
-$color0: (apple0, orange0);
-$color1: (apple1, orange1);
-$color2: (apple2, orange2);
+// @each $c-name in $color {
+//     // $c-name 사용
+// }
+// $color0: (apple0, orange0);
+// $color1: (apple1, orange1);
+// $color2: (apple2, orange2);
 
-@each $c-name in $color0, color1, color2 {
-    // $c-name 사용
-}
+// @each $c-name in $color0, color1, color2 {
+//     // $c-name 사용
+// }
 
 // --------------------------------------------------------
 
@@ -76,6 +76,7 @@ $color2: (apple2, orange2);
 
 @each $color, $value in $theme-colors {
   .alert-#{$color} {
-    @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+    @include alert-variant(theme-color-level($color, $alert-bg-level), 
+    theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
   }
 }

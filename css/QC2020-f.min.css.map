@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AGkCA,AAAA,MAAM,AAAC,CACL,QAAQ,CAAE,QAAQ,CAClB,OAAO,CDjB2B,MAAO,CACP,OAAO,CCiBzC,aAAa,CDhBqB,IAAI,CCiBtC,MAAM,CDd4B,GAAG,CCcT,KAAK,CAAC,WAAW,CAE9C,AAGD,AAAA,cAAc,AAAC,CAEb,KAAK,CAAE,OAAO,CACf,AAGD,AAAA,WAAW,AAAC,CACV,WAAW,CD3BuB,GAAG,CC4BtC,AAOD,AAAA,kBAAkB,AAAC,CACjB,aAAa,CAAE,IAAuC,CAUvD,AAXD,AAIE,kBAJgB,CAIhB,MAAM,AAAC,CACL,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,CAAC,CACN,KAAK,CAAE,CAAC,CACR,OAAO,CD/CyB,MAAO,CACP,OAAO,CC+CvC,KAAK,CAAE,OAAO,CACf",
+    "sources": [
+        "../scss/QC2020-f.scss",
+        "../scss/_color.scss",
+        "../scss/_variables.scss",
+        "../scss/vendor/_alert.scss",
+        "../scss/vendor/_alert-mixin.scss",
+        "../scss/_mixin.scss"
+    ],
+    "names": [],
+    "file": "QC2020-f.min.css"
+}

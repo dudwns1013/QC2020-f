@@ -1,152 +1,100 @@
-//---------------------------
-// Mixin
-//---------------------------
-
-@mixin base($width, $height, $margin, $border-width) {
-    width: $width;
-    height: $height;
-    margin: $margin;
-    position: $default-position;
-    padding: $default-padding;
-    border-width: $border-width;
-    border-style: $default-border-style;
-    border-color: $dy-purple;
-    border-radius: $default-border-radius;
-    color: $dy-gray;
-    background-color: $bg-green;
-}
-
-@mixin base_sub($sub_position, $top, $left, $qc-font) {
-    position: $sub_position;
-    top: $top;
-    left: $left;
-    font-family: $qc-font;
-}
-
-@mixin bsfont-property($root-font-size, $bsfont) {
-    font-size: $root-font-size;
-    font-family: $bsfont;
-}
-
-@mixin h3-property($h3-size, $h3-font) {
-    font-size: $h3-size;
-    font-family: $h3-font;
-}
-
-@mixin h5-property($h5-size, $h5-font) {
-    font-size: $h5-size;
-    font-family: $h5-font;
-}
-
-@mixin qfont-property($qfont-size, $qfont) {
-    font-size: $qfont-size;
-    font-family: $qfont;
-}
-
-// @mixin edge-color($edge-color) {
-//     background-color: map-get($background-color, $edge-color);
-//     border-color: map-get($default-color, $edge-color);
-// }
-
-@mixin pxc($width, $margin, $bd-width) {
-    width: $width;
-    margin: $margin;
-    border-width: $bd-width;
-    border-style: $default-border-style;
-    padding: $default-padding;
-}
-
-@mixin left-f1-color($bg_color, $bd_color, $bd_le_width, $bd_top_rr, $bd_bottom_rr) {
-    background-color: $bg_color;
-    border-color: $bd_color;
-    border-left-width: $bd_le_width;
-    border-top-right-radius: $bd_top_rr;
-    border-bottom-right-radius: $bd_bottom_rr; 
-}
-
-@mixin blockquote1($padding) {
-    padding: $padding;
-    position: $default-position;
-}
-
-@mixin blockquote1-p($ff, $fs, $fw) {
-    font-family: $ff;
-    font-size: $fs;
-    font-weight: $fw;
-    text-align: $default-text-align;
-}
-
-@mixin blockquote1_before($ps, $ff, $content, $fs ,$color) {
-    position: $ps;
-    font-family: $ff;
-    top: $default-top;
-    
-    content: $content;
-    font-size: $fs;
+@mixin alert-variant($background, $border, $color) {
     color: $color;
-}
+    @include gradient-bg($background);
+    border-color: $border;
+  
+    hr {
+      border-top-color: darken($border, 5%);
+    }
+  
+    .alert-link {
+      color: darken($color, 10%);
+    }
+  }
 
-@mixin blockquote1_after($content, $top, $left, $mg_left, $ps, $bd_bottom, $height, $width) {
-    content: $content;
-    top: $top;
-    left: $left;
-    margin-left: $mg_left;
-    position: $ps;
-    border-bottom: $bd_bottom;
-    height: $height;
-    width: $width;
-}
+  // stylelint-disable property-blacklist
+// Single side border-radius
 
-@mixin otro_blockquote($fs, $width, $margin, $ff, $fstyle, $color, $padding, $bd_left, $ln_height, $bg) {
-    font-size: $fs;
-    width: $width;
-    margin: $margin;
-    font-family: $ff;
-    font-style: $fstyle;
-    color: $color;
-    padding: $padding;
-    border-left: $bd_left;
-    line-height: $ln_height;
-    position: $default-position;
-    background: $bg;
-}
+// Helper function to replace negative values with 0
+@function valid-radius($radius) {
+    $return: ();
+    @each $value in $radius {
+      @if type-of($value) == number {
+        $return: append($return, max($value, 0));
+      } @else {
+        $return: append($return, $value);
+      }
+    }
+    @return $return;
+  }
+  
+  @mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+    @if $enable-rounded {
+      border-radius: valid-radius($radius);
+    }
+    @else if $fallback-border-radius != false {
+      border-radius: $fallback-border-radius;
+    }
+  }
+  
+  @mixin border-top-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-right-radius($radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-left-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-left-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-right-radius($radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-right-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-left-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+// Gradients
 
-@mixin otro_blockquote_before($ff, $content, $color, $fs, $position, $left, $top) {
-    font-family: $ff;
-    content: $content;
-    color: $color;
-    font-size: $fs;
-    position: $position;
-    left: $left;
-    top: $top;
-}
-
-@mixin otro_blockquote_after($content) {
-    content: $content;
-}
-
-@mixin otro_blockquote_span($display, $color, $fw) {
-    display: $display;
-    color: $color;
-    font-style: $default-font-stlye;
-    font-weight: $fw;
-    margin-top: $default-margin-top;
-}
-
-// @mixin edge-left($edge-width) {
-//     border-left-width: $edge-width;
-// }
-
-// @mixin edge-right($edge-width) {
-//     border-right-width: $edge-width;
-// }
-
-// @mixin edge-top($edge-width) {
-//     border-top-width: $edge-width;
-// }
-
-// @mixin edge-bottom($edge-width) {
-//     border-bottom-width: $edge-width;
-// }
-
-
+@mixin gradient-bg($color) {
+    @if $enable-gradients {
+      background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x;
+    } @else {
+      background-color: $color;
+    }
+  }
