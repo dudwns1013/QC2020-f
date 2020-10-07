@@ -2,11 +2,12 @@
 $alpha: 0.3;
 
 // default color
-$dy-blue:   rgb(0, 123, 255)  !default;
-$dy-purple: rgb(110, 65, 193) !default;
 $dy-red:    rgb(221, 53, 69)  !default;
+$dy-orange: rgb(248, 132, 0)  !default;
 $dy-yellow: rgb(255, 193, 6)  !default;
 $dy-green:  rgb(40, 167, 69)  !default;
+$dy-blue:   rgb(0, 123, 255)  !default;
+$dy-purple: rgb(110, 65, 193) !default;
 
 // Gray
 $dy-gray: rgb(108, 117, 125) !default;
@@ -25,9 +26,9 @@ $bg-green:  rgba($dy-green, $alpha)  !default;
 
 // default color array
 $dy-color: (
-    'dy-blue': $dy-blue,
+    'dy-blue':   $dy-blue,
     'dy-purple': $dy-purple,
-    'dy-red': $dy-red,
+    'dy-red':    $dy-red,
     'dy-yellow': $dy-yellow,
-    'dy-green': $dy-green,
+    'dy-green':  $dy-green,
 );
